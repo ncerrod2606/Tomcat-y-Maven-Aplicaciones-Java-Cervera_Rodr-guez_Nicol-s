@@ -64,6 +64,12 @@ sudo systemctl start tomcat9
 
 ![Arrancar Tomcat](img/cp5.png)
 
+Deberemos tener para la siguiente ruta este paquete instalado:
+
+```
+sudo apt install -y tomcat9-admin
+```
+
 Para el acceso remoto a Tomcat debemos modificar el archivo de configuración de context.xml:
 
 ```
@@ -71,3 +77,26 @@ sudo nano /usr/share/tomcat9-admin/host-manager/META-INF/context.xml
 ```
 
 ![Configuración de Tomcat](img/cp6.png)
+
+Y se veria en nuestro navegador de la siguiente manera:
+
+![Configuración de Tomcat](img/cp7.png)
+
+Y para el acceso remoto a la administración de Tomcat debemos modificar el archivo de configuración de tomcat-users.xml:
+
+```
+sudo nano /etc/tomcat9/tomcat-users.xml
+```
+
+![Configuración de Tomcat](img/cp8.png)
+
+Accederemos a la web a la con Accede a http://192.168.7.5:8080/manager/html:
+
+![Acceso a la web](img/cp9.png)
+
+Y se veria en nuestro navegador de la siguiente manera:
+
+![Acceso a la web](img/cp10.png)
+
+
+
