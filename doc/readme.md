@@ -82,7 +82,9 @@ Y se veria en nuestro navegador de la siguiente manera:
 
 ![Configuración de Tomcat](img/cp7.png)
 
-Y para el acceso remoto a la administración de Tomcat debemos modificar el archivo de configuración de tomcat-users.xml:
+## Configuración de la administración
+
+Para el acceso remoto a la administración de Tomcat debemos modificar el archivo de configuración de tomcat-users.xml:
 
 ```
 sudo nano /etc/tomcat9/tomcat-users.xml
@@ -97,6 +99,63 @@ Accederemos a la web a la con Accede a http://192.168.7.5:8080/manager/html:
 Y se veria en nuestro navegador de la siguiente manera:
 
 ![Acceso a la web](img/cp10.png)
+
+## Despliegue manual mediante GUI
+
+Para seleccionar el archivo .war deberemos clicar en clicar archivo y desde ahi buscarlo en nuestro equipo en este apartado:
+
+![war](img/cp11.png)
+
+Una vez seleccionado deberia de aparecer algo asi:
+
+![war](img/cp12.png)
+
+Le daremos a desplegar y se veria este resultado:
+
+![war](img/cp13.png)
+
+## Instalación de Maven
+
+Para instalar Maven ejecutamos el siguiente comando:
+
+```
+sudo apt-get update && sudo apt-get -y install maven
+```
+
+![Instalación de Maven](img/cp14.png)
+
+Podremos comprobar que se ha instalado correctamente con:
+```
+mvn --v
+```
+
+![Instalación de Maven](img/cp15.png)
+
+Añadimos nuevo usuario delay con su contraseña en el archivo tomcat-users.xml:
+
+```
+sudo nano /etc/tomcat9/tomcat-users.xml
+```
+
+![Configuración de Tomcat](img/cp16.png)
+
+Y en el archivo /etc/maven/settings.xml añadimos el usuario delay con su contraseña:
+
+```
+sudo nano /etc/maven/settings.xml
+```
+
+![Configuración de Maven](img/cp17.png)
+
+Para lanzar una aplicacion de ejemplo lo haremos:
+
+```
+mvn archetype:generate -DgroupId=org.ejemplo -DartifactId=tomcat-war-deployment -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+```
+
+![Configuración de Maven](img/cp18.png)
+
+
 
 
 
