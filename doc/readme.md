@@ -12,7 +12,6 @@
 4. [Despliegue manual mediante GUI](#despliegue-manual-mediante-gui)
 5. [Despliegue con Maven](#despliegue-con-maven)
 6. [Tarea](#tarea)
-7. [Referencias](#referencias)
 
 
 ---
