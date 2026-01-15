@@ -155,6 +155,101 @@ mvn archetype:generate -DgroupId=org.ejemplo -DartifactId=tomcat-war-deployment 
 
 ![Configuración de Maven](img/cp18.png)
 
+Ahora entraremoss en la carpeta de la aplicacion de ejemplo:
+
+```
+cd tomcat-war-deployment
+```
+Y editamos el archivo pom.xml en cuestión esta parte en específico:
+
+```
+nano pom.xml
+```
+
+![Configuración de Maven](img/cp19.png)
+
+Quedando de esta manera:
+
+![Configuración de Maven](img/cp20.png)
+
+Sería añadir esto al bloque:
+
+```
+<build>
+   <finalName>tomcat-war-deployment</finalName>
+   <plugins>
+     <plugin>
+       <groupId>org.apache.tomcat.maven</groupId>
+       <artifactId>tomcat7-maven-plugin</artifactId>
+       <version>2.2</version>
+       <configuration>
+         <url>http://localhost:8080/manager/text</url>
+         <server>Tomcat</server>
+         <path>/despliegue</path>
+       </configuration>
+     </plugin>
+   </plugins>
+</build>
+```
+
+Y ejecutamos el siguiente comando para lanzarlo:
+```
+mvn tomcat7:deploy
+```
+
+![Configuración de Maven](img/cp21.png)
+![Configuración de Maven](img/cp22.png)
+
+Y así se veria en el navegador:
+
+![Configuración de Maven](img/cp23.png)
+
+
+## Tarea
+Para realizar la tarea de rock-paper-scissors lo haremos de la siguiente manera:
+
+Empezaremos clonando el repositorio de github:
+
+```
+git clone https://github.com/cameronmcnz/rock-paper-scissors.git
+```
+
+![Clonar repositorio](img/cp24.png)
+
+
+Y entraremos en el directorio de rock-paper-scissors y cambiaremos de rama a patch-1:
+```
+cd rock-paper-scissors
+```
+
+```
+git checkout patch-1
+```
+![Configuración de Maven](img/cp25.png)
+
+Editaremos el archivo pom.xml:
+```
+nano pom.xml
+```
+
+![Configuración de Maven](img/cp26.png)
+
+Y lo iniciaremos con el siguiente comando:
+```
+mvn tomcat7:deploy
+```
+
+![Configuración de Maven](img/cp27.png)
+
+Y en la web se veria de la siguiente manera:
+
+![Configuración de Maven](img/cp28.png)
+
+
+
+
+
+
 
 
 
